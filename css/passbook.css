@@ -146,7 +146,7 @@
   }
   
   .logincard .loginForm {
-    width: 80%;
+    width: 100%;
     height: 120px;
     display: inline-block;
     float: none;
@@ -160,6 +160,7 @@
     animation: moveIn 1s 3.1s ease forwards;
   }
 
+
   .logincard .loginForm .form-info{
     background: #1a1a1a;
     color: white;
@@ -167,6 +168,7 @@
     margin-bottom: 12px;
     padding: 10px;
     border-radius: 15px;
+    display: inline-block;
 }
 .logincard .loginForm .form-info:focus{
   outline: none;
@@ -323,7 +325,7 @@
       -webkit-border-radius: 4px;
     }
     100% {
-      width: 440px;
+      width: 75%;
       height: 75%;
       background: #1a1a1a;
       color: white;
@@ -339,7 +341,7 @@
       border-radius: 4px;
     }
     100% {
-      width: 440px;
+      width: 75%;
       height: 75%;
       background: #1a1a1a;
       color: white;
@@ -410,5 +412,111 @@
     }
     100% {
       opacity: 0;
+    }
+  }
+
+
+  #user{
+    position: absolute;
+    top: 50px;
+    right: 95px;
+    border-radius: 50%;
+  }
+  
+  
+  #user #userImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  
+  #user img:hover{
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
+  }
+  
+  .dropdown-content{
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 85px;
+    color: #fff;
+    background-color: #1a1a1a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 20px;
+    color: #1a1a1a;
+  }
+  
+  .show {
+    display: block;
+  }
+
+  #intro img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    box-shadow: 0 0 0 2px #fff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-animation: pulse 2s;
+    animation: pulse 2s;
+  }
+  
+  #intro img:hover{
+    -webkit-transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      -webkit-transform: translate(-50%, -50%) scale(1.2);
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      -webkit-transform: translate(-50%, -50%) scale(1.2);
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
   }

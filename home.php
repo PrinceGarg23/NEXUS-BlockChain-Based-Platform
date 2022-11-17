@@ -1,3 +1,18 @@
+<?php
+
+//check for user else go to login page
+session_start();
+if(!isset($_SESSION['user'])){
+    header("Location: login.php");
+}else{
+    $name = $_SESSION['name'];
+    $user = $_SESSION['user'];
+    //echo "Welcome $user";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,10 +43,24 @@
         
         <div id="particles-js">
 
+            <h3><?php echo "Welcome, $name"; ?></h3>
+
+            <div id="user">
+                <img src="assets/user_default.svg" alt="User" id="userImg" onclick="myFunction()">
+            </div>
+    
+            <div id="myDropdown" class="dropdown-content">
+                <a href="account.php">Account</a>
+                <a href="transaction.php">Transaction</a>
+                <a href="passbook.php">Passbook</a>
+                <a href="logout.php">Logout</a>
+            </div>
+
             <img src="assets/logo1.jpg" alt="assets/logo1.jpg">
             <h1 class="card-title">NEXUS</h1>
-            <p>It is a platform to utilize our own introduced Virtual Currency <font style="color: #FF5722;">KUPA</font> . </p>
-            <h5 onclick="window.location.href='index.html'">Know More About Platform >></h5>
+            <h5> NEXUS IS FOR EVERYONE</h5>
+            <p>We’re building a platform that will bring anyone who believes in crypto to join the digital cryptocurrency revolution. The world is moving on to this revolution at an unprecedented pace. </p>
+            
         </div>
 
 
@@ -116,10 +145,10 @@
     </section>
 
     <!-- <div class="parallax-window" data-parallax="scroll" data-image-src="assets/Ottawa_1920x1080.jpg"></div> -->
-
+<!-- 
     <section class="trends section3">
 
-    </section>
+    </section> -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
