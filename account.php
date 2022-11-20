@@ -16,7 +16,7 @@ if(!isset($_SESSION['user'])){
     $db = "nexus";
 
 
-    $conn = new mysqli($server, $user, $pass, $db);
+    $conn = new mysqli($server, $user, $pass, $db,3307);
 
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);

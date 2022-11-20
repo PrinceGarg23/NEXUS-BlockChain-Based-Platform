@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     $db = "nexus";
 
 
-    $conn = new mysqli($server, $user, $pass, $db);
+    $conn = new mysqli($server, $user, $pass, $db,3307);
 
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
@@ -25,9 +25,11 @@ if(isset($_POST['submit'])){
         $row = $result->fetch_assoc();
         $user = $row['name'];
         $nam = $row['username'];
+        $unit = $row['unit'];
         session_start();
         $_SESSION['name'] = $user;
         $_SESSION['user']=$nam;
+        $_SESSION['unit']=$unit;
         //echo "Login successful";
         //redirect to home page
         header("Location: home.php");

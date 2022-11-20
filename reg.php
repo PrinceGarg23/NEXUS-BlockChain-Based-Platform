@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     $pass = "";
     $db = "nexus";
 
-    $conn = new mysqli($server, $user, $pass, $db);
+    $conn = new mysqli($server, $user, $pass, $db,3307);
 
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
                     session_start();
                     $_SESSION['name'] = $name;
                     $_SESSION['user']=$username;
-                    header("Location: home.php");
+                    header("Location: login.php");
                 }else{
                     $s=0;
                    // echo "Registration failed";

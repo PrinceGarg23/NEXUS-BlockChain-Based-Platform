@@ -217,6 +217,8 @@
   background-color: #FF5722;
   color: #fff;
   display: block;
+  text-align: center;
+  align-items: center;
 }
 
 
@@ -243,7 +245,7 @@
 
 .section2 .container .box p{
   color: #fff;
-  font-size: 3vw;
+  font-size: 2.5vw;
 
 }
 
@@ -253,10 +255,13 @@
     background-color: #1a1a1a;
     color: white;
     display: block;
+    text-align: center;
+    align-items: center;
   }
 
   .section3 h1 {
     font-size: 5vw;
+    text-align: center;
     font-family: serif;
     font-weight: bold;
     margin-top: 20px;
@@ -269,6 +274,7 @@
   }
 
   .container .card{
+    vertical-align: middle;
     display: inline-block;
     width: 20%;
     height: 400px;

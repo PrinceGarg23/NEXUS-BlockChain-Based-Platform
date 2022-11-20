@@ -7,6 +7,7 @@ if(!isset($_SESSION['user'])){
 }else{
     $name = $_SESSION['name'];
     $usert = $_SESSION['user'];
+    $unit = $_SESSION['unit'];
     //echo "Welcome $user";
 }
 ?>
@@ -74,7 +75,7 @@ if(!isset($_SESSION['user'])){
                                 var name = document.getElementById("to").value;
                                 //amount in integer
                                 var amount = document.getElementById("amount").value;
-                                var url = "http://localhost:5001/add_transaction";
+                                var url = "http://localhost:"+"<?php echo $unit;?>"+"/add_transaction";
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", url, true);
                                 xhr.setRequestHeader("Content-Type", "application/json");
@@ -92,7 +93,7 @@ if(!isset($_SESSION['user'])){
                                                         });
                                 xhr.send(data);
 
-                                var url2 = "http://localhost:5001/mine_block";
+                                var url2 = "http://localhost:"+"<?php echo $unit;?>"+"/mine_block";
                                 var xhr2 = new XMLHttpRequest();
                                 xhr2.open("GET", url2, true);
                                 xhr2.setRequestHeader("Content-Type", "application/json");

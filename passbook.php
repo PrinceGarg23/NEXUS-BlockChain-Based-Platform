@@ -7,6 +7,7 @@ if(!isset($_SESSION['user'])){
 }else{
     $name = $_SESSION['name'];
     $usert = $_SESSION['user'];
+    $unit = $_SESSION['unit'];
     //echo "Welcome $user";
 }
 ?>
@@ -55,27 +56,69 @@ if(!isset($_SESSION['user'])){
                         <!--Firm name -->
                         <h1 class="unselectable"><?php echo $name; ?></h1>
                         <!-- role -->
-                        <h2 class="unselectable">Passbook</h2>
+                        <h2 class="unselectable">Transaction History</h2>
                     </header>
                     <div class="loginForm">
                         <form>
                         <button type="button" class="send-button" id="refresh" name="refresh" onclick="update()">Refresh</button>
                         </form>
                     <header>
-                        <h2 class="unselectable" id="msg"></h2>
+                        <div id="msg"></div>
+
                     </header>
                         <script>
-                            
                             function update(){
-                                var url = "http://localhost:5001/get_chain"
+                                var url2 = "http://localhost:"+"<?php echo $unit;?>"+"/replace_chain"
+                                var xhttp2 = new XMLHttpRequest();
+                                xhttp2.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        this.responseText;
+                                    }
+                                };
+                                xhttp2.open("GET", url2 , true);
+                                xhttp2.send();
+
+
+
+
+
+                                var url = "http://localhost:"+"<?php echo $unit;?>"+"/get_chain"
                                 var xhttp = new XMLHttpRequest();
                                 xhttp.onreadystatechange = function() {
                                     if (this.readyState == 4 && this.status == 200) {
-                                        document.getElementById("msg").innerHTML = this.responseText;
+                                        printt(this.responseText);
                                     }
                                 };
                                 xhttp.open("GET", url , true);
                                 xhttp.send();
+                            }
+                            function printt(res){
+                                var obj = JSON.parse(res);
+                                var chain = obj.chain;
+                                var len = chain.length;
+                                var i;
+                                var msg = "<table id='book'><thead><tr><th>TimeStamp</th><th>Sender</th><th>Receiver</th><th>Amount</th></tr></thead><tbody>";
+                                for(i=len-1;i>=1;i--){
+                                    var block = chain[i];
+                                    var timestamp = block.timestamp;
+                                    var transactions = block.transactions;
+                                    var len2 = transactions.length;
+                                    var j;
+                                    for(j=0;j<len2-1;j++){
+                                        var transaction = transactions[j];
+                                        var sender = transaction.sender;
+                                        var receiver = transaction.receiver;
+                                        var amount = transaction.amount;
+                                        //print output in table
+                                        
+                                        //if(sender == "<?php echo $usert; ?>"){
+                                            msg += "<tr><td>"+timestamp+"</td><td>"+sender+"</td><td>"+receiver+"</td><td>"+amount+"</td></tr>";
+                                        //}
+                                }
+                                    
+                                }
+                                msg += "</tbody></table>";
+                                document.getElementById("msg").innerHTML = msg;
                             }
                         </script>
 
